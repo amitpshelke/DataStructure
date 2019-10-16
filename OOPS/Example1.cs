@@ -44,7 +44,7 @@ namespace OOPS.OverrideExamples
         }
         public new void Func3()
         {
-            Console.WriteLine("Derived: Func3");
+            Console.WriteLine("Derived: Func3"); 
         }
     }
 
