@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessorService", "Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerWebApp", "DockerWebApp\DockerWebApp.csproj", "{682A1DED-C0F4-4A4C-85D0-9F7E82F047A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWinApp", "SampleWinApp\SampleWinApp.csproj", "{7C4801A9-93D0-406C-AB4E-542AACC66176}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoExpert.io", "AlgoExpert.io\AlgoExpert.io.csproj", "{33F85F65-8B92-4E82-B10D-A8AAEE3D69C7}"
 EndProject
 Global
@@ -85,10 +83,6 @@ Global
 		{682A1DED-C0F4-4A4C-85D0-9F7E82F047A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{682A1DED-C0F4-4A4C-85D0-9F7E82F047A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{682A1DED-C0F4-4A4C-85D0-9F7E82F047A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C4801A9-93D0-406C-AB4E-542AACC66176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C4801A9-93D0-406C-AB4E-542AACC66176}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C4801A9-93D0-406C-AB4E-542AACC66176}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C4801A9-93D0-406C-AB4E-542AACC66176}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33F85F65-8B92-4E82-B10D-A8AAEE3D69C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33F85F65-8B92-4E82-B10D-A8AAEE3D69C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33F85F65-8B92-4E82-B10D-A8AAEE3D69C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
