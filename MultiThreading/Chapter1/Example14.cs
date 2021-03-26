@@ -24,6 +24,7 @@ namespace MultiThreading
         private void Done(IAsyncResult asyncResult)
         {
             var temp = (Func<string, int>)asyncResult.AsyncState;
+
             int result = temp.EndInvoke(asyncResult);
 
             Console.WriteLine("String Length : " + result);

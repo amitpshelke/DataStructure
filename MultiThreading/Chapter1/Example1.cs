@@ -29,6 +29,9 @@ namespace MultiThreading
             });
             tz.Start();
 
+            //Method 4:
+            new Thread(Go).Start();
+
 
 
             //main thread code

@@ -8,27 +8,29 @@ namespace SOLID.LSP
 {
     public abstract class Employee
     {
-        public virtual string GetProjectDetails(int employeeId)
-        {
-            return "Base Project";
-        }
-        public virtual string GetEmployeeDetails(int employeeId)
-        {
-            return "Base Employee";
-        }
+        public abstract string GetProjectDetails(int employeeId);
+
+        public abstract string GetPFDetails(int employeeId);
+
+        public abstract string GetDailyWages(int employeeId);
     }
 
 
-    public class CasualEmployee : Employee
+    public class PermanentEmployee : Employee
     {
         public override string GetProjectDetails(int employeeId)
         {
             return "Child Project";
         }
         // May be for contractual employee we do not need to store the details into database.
-        public override string GetEmployeeDetails(int employeeId)
+        public override string GetPFDetails(int employeeId)
         {
             return "Child Employee";
+        }
+
+        public override string GetDailyWages(int employeeId)
+        {
+            throw new NotImplementedException(); // considering Daily Wages is only applicable to Contractual Employee
         }
     }
 
@@ -39,10 +41,15 @@ namespace SOLID.LSP
         {
             return "Child Project";
         }
-        // May be for contractual employee we do not need to store the details into database.
-        public override string GetEmployeeDetails(int employeeId)
+
+        public override string GetDailyWages(int employeeId)
         {
-            throw new NotImplementedException();
+            return "Child Wages";
+        }
+        // May be for contractual employee we do not need to store the details into database.
+        public override string GetPFDetails(int employeeId)
+        {
+            throw new NotImplementedException(); // considering PF is only applicable to Permanent Employee
         }
     }
 
@@ -62,20 +69,20 @@ namespace SOLID.LSP
             List<Employee> employeeList = new List<Employee>();
 
             employeeList.Add(new ContractualEmployee());
-            employeeList.Add(new CasualEmployee());
+            employeeList.Add(new PermanentEmployee());
 
             foreach (Employee e in employeeList)
             {
-                e.GetEmployeeDetails(1245);
+                e.GetPFDetails(1245);
             }
 
 
             List<IEmployee> employees = new List<IEmployee>();
-            employees.Add(new CasualEmployee_Extn());
+            employees.Add(new PermanentEmployee_Extn());
             employees.Add(new ContractualEmployee_Extn());
 
-            List<IProject> projects = new List<IProject>();
-            projects.Add(new CasualEmployee_Extn());
+            List<IProvidentFund> projects = new List<IProvidentFund>();
+            projects.Add(new PermanentEmployee_Extn());
             //projects.Add(new ContractualEmployee_Extn());    <======= This line will give COMPILE TIME ERROR
 
         }
@@ -86,32 +93,42 @@ namespace SOLID.LSP
         string GetEmployeeDetails(int employeeId);
     }
 
-    public interface IProject
+    public interface IProvidentFund
     {
-        string GetProjectDetails(int employeeId);
+        string GetPFDetails(int employeeId);
+    }
+
+    public interface IDailyWages
+    {
+        string GetWagesDetails(int employeeId);
     }
 
 
 
 
-    public class CasualEmployee_Extn : IEmployee, IProject
+    public class PermanentEmployee_Extn : IEmployee, IProvidentFund
     {
         public string GetEmployeeDetails(int employeeId)
         {
-            throw new NotImplementedException();
+            return "";
         }
 
-        public string GetProjectDetails(int employeeId)
+        public string GetPFDetails(int employeeId)
         {
-            throw new NotImplementedException();
+            return "";
         }
     }
 
-    public class ContractualEmployee_Extn : IEmployee
+    public class ContractualEmployee_Extn : IEmployee, IDailyWages
     {
         public string GetEmployeeDetails(int employeeId)
         {
-            throw new NotImplementedException();
+            return "";
+        }
+
+        public string GetWagesDetails(int employeeId)
+        {
+            return "";
         }
     }
 

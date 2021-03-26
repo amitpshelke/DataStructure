@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>OOPS</RootNamespace>
     <AssemblyName>OOPS</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,14 +54,155 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Example1.cs" />
-    <Compile Include="Example2.cs" />
-    <Compile Include="Example3.cs" />
-    <Compile Include="Example4.cs" />
-    <Compile Include="Example5.cs" />
-    <Compile Include="Example6.cs" />
+    <Compile Include="AbstractClass_Interface.cs" />
+    <Compile Include="Abstraction.cs" />
+    <Compile Include="Aggregation_Association_Composition.cs" />
+    <Compile Include="Async_Await.cs" />
+    <Compile Include="BlockingCollection.cs" />
+    <Compile Include="CityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Concurrency_Parallelism.cs" />
+    <Compile Include="ConcurrentCollection.cs" />
+    <Compile Include="Const_ReadOnly.cs" />
+    <Compile Include="Covariance_ContraVariance.cs" />
+    <Compile Include="DebugLog.cs" />
+    <Compile Include="Events_Delegates.cs" />
+    <Compile Include="Events_Delegates_4.cs" />
+    <Compile Include="Events_Delegate_2.cs" />
+    <Compile Include="Events_Delegate_3.cs" />
+    <Compile Include="ExtensionMethod.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Framework_Features.cs" />
+    <Compile Include="GarbageCollection.cs" />
+    <Compile Include="Collection.cs" />
+    <Compile Include="GenericsComplete.cs" />
+    <Compile Include="LambdaExp_Delegate_AnomyousFunc.cs" />
+    <Compile Include="DelegateSample2.cs" />
+    <Compile Include="Enumerables.cs" />
+    <Compile Include="GenericSample1.cs" />
+    <Compile Include="Hashtables.cs" />
+    <Compile Include="Indexers.cs" />
+    <Compile Include="Inheritance.cs" />
+    <Compile Include="Inheritance2.cs" />
+    <Compile Include="Interface_Subscribe.cs" />
+    <Compile Include="Interview\Test11.cs" />
+    <Compile Include="Interview\Test2.cs" />
+    <Compile Include="Interview\Test1.cs" />
+    <Compile Include="Interview\Test3.cs" />
+    <Compile Include="Interview\Test4.cs" />
+    <Compile Include="Interview\Test5.cs" />
+    <Compile Include="Interview\Test6.cs" />
+    <Compile Include="Interview\Test7.cs" />
+    <Compile Include="Interview\Test8.cs" />
+    <Compile Include="Interview\Text10.cs" />
+    <Compile Include="IQuerableVsIEnumerable.cs" />
+    <Compile Include="JaggedArray.cs" />
+    <Compile Include="Linq.cs" />
+    <Compile Include="MemoryAllocation.cs" />
+    <Compile Include="Multicast_Delegate.cs" />
+    <Compile Include="NestedAsync_Await.cs" />
+    <Compile Include="Nested_Classes.cs" />
+    <Compile Include="Object_Var_Dynamic.cs" />
+    <Compile Include="Overloading.cs" />
+    <Compile Include="Ref_Out.cs" />
+    <Compile Include="RegularExpression.cs" />
+    <Compile Include="Stack_Queue.cs" />
+    <Compile Include="StaticClass.cs" />
+    <Compile Include="Static_class2.cs" />
+    <Compile Include="StringBuilder.cs" />
+    <Compile Include="String_Interpolation.cs" />
+    <Compile Include="Struct_Class.cs" />
+    <Compile Include="tblCity.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCityStore.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyBookingInfo.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyBookingTerm.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyFacilityInfo.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyImage.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyInfo.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyOwnerInfo.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyReview.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPropertyType.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblState.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserInfo.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserType.cs">
+      <DependentUpon>CityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Timing.cs" />
+    <Compile Include="Interface.cs" />
+    <Compile Include="Iterate_Async.cs" />
+    <Compile Include="NullableTypes.cs" />
+    <Compile Include="OverrideExamples.cs" />
+    <Compile Include="OverrideConstructor.cs" />
+    <Compile Include="StaticConstructor.cs" />
+    <Compile Include="Polymorphism.cs" />
+    <Compile Include="InterfaceConflict.cs" />
+    <Compile Include="BeforeFieldInit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="CityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CityModel.edmx.diagram">
+      <DependentUpon>CityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CityModel.Context.cs</LastGenOutput>
+      <DependentUpon>CityModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="CityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CityModel.edmx</DependentUpon>
+      <LastGenOutput>CityModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="IEnumerable_ICollection_IList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,6 +10,7 @@ namespace EDF
     {
         static void Main(string[] args)
         {
+            LicenseData ld = new LicenseData();
         }
     }
 }

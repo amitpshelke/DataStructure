@@ -1,4 +1,4 @@
-﻿using System;
+﻿  using System;
 
 /*
  Inheritance is a way to specify different implementations of an abstraction. 

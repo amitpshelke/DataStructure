@@ -30,7 +30,7 @@ namespace MultiThreading
                 {
                     done = true;   // in both case done will be printed once due to locker object
                     Console.Write("DONE");
-                    //done = true;
+                    done = true;
                 }
             }
         }

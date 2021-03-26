@@ -12,8 +12,9 @@ namespace DataStructures
         {
             int n = arr.Length;
 
+            int iLoop = n - 1;
             // One by one move boundary of unsorted subarray 
-            for (int i = 0; i < n - 1; i++)
+            for (int i = 0; i < iLoop; i++)
             {
                 // Find the minimum element in unsorted array 
                 int min_idx = i;

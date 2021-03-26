@@ -21,6 +21,16 @@ namespace DesignPattern.Structural.Decorator
 
     }
 
+    public class HyundaiVerna : IVehicle
+    {
+        public string Make { get { return "Hyundai"; } }
+
+        public string Model { get { return "Verna"; } }
+
+        public string Price { get { return "$ 12,000"; } }
+
+    }
+
 
     public abstract class VehicleDecorator : IVehicle
     {

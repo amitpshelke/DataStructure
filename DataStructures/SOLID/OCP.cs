@@ -53,12 +53,37 @@ namespace SOLID.OCP
             // Generate crystal report.
         }
     }
-   
+
+    public class ExcelReportGeneration : IReportGeneration//ReportGenerationExt
+    {
+        public void GenerateReport(Employee em)
+        {
+            // Generate Excel report.
+        }
+    }
+
     public class PDFReportGeneration : ReportGenerationExt
     {
         public override void GenerateReport(Employee em)
         {
             // Generate PDF report.
+        }
+    }
+
+    public class Client
+    {
+        public static void Execute() 
+        {
+            Employee ee = new Employee();
+
+            IReportGeneration iReportGen1 = new CrystalReportGeneration();
+            iReportGen1.GenerateReport(ee);
+
+            IReportGeneration iReportGen2 = new ExcelReportGeneration();
+            iReportGen2.GenerateReport(ee);
+
+
+
         }
     }
 }

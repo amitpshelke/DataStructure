@@ -24,11 +24,11 @@ namespace MultiThreading
         {
 
             //instance variable of class Example3 is shared between main thread and the new thread,
-            if (!done)
+            if (done == false)
             {
                 done = true;  // done will printed once
                 Console.Write("DONE");
-                //done = true;  //done will be printed twice
+                //done = false;  //done will be printed twice
             }
         }
     }

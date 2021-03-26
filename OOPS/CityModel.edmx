@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="StateID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCityStore">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tblPropertyBookingInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Booking Details" Type="varchar(max)" Nullable="false" />
+          <Property Name="BookingDateFrom" Type="date" Nullable="false" />
+          <Property Name="BookingDateTo" Type="date" Nullable="false" />
+          <Property Name="BookingTimeFrom" Type="time" Precision="7" Nullable="false" />
+          <Property Name="BookingTimeTo" Type="time" Precision="7" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyBookingTerms">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyBookingName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PropertyBookingTerms" Type="varchar(max)" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyFacilityInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyFacilityName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyImages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="ImageTitle" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PropertyTypeID" Type="int" Nullable="false" />
+          <Property Name="IsPrivateParkingAvailable" Type="bit" Nullable="false" />
+          <Property Name="IsRoadSideParkingAvailable" Type="bit" Nullable="false" />
+          <Property Name="IsNearToPublicTransport" Type="bit" Nullable="false" />
+          <Property Name="IsNearToAirport" Type="bit" Nullable="false" />
+          <Property Name="IsNearToRailwayStation" Type="bit" Nullable="false" />
+          <Property Name="IsNearToBusStation" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyOwnerInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyOwner" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PropertyOwnerAddress" Type="varchar" MaxLength="500" />
+          <Property Name="Contact1" Type="nchar" MaxLength="10" />
+          <Property Name="Contact2" Type="nchar" MaxLength="10" />
+          <Property Name="Contact3" Type="nchar" MaxLength="10" />
+          <Property Name="PropertyInfoID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyReview">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyReview" Type="varchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblStates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserAddress" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserTypeID" Type="int" Nullable="false" />
+          <Property Name="Contact1" Type="nchar" MaxLength="10" />
+          <Property Name="Contact2" Type="nchar" MaxLength="10" />
+          <Property Name="Contact3" Type="nchar" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EFModelStoreContainer">
+          <EntitySet Name="tblCity" EntityType="Self.tblCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCityStore" EntityType="Self.tblCityStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyBookingInfo" EntityType="Self.tblPropertyBookingInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyBookingTerms" EntityType="Self.tblPropertyBookingTerms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyFacilityInfo" EntityType="Self.tblPropertyFacilityInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyImages" EntityType="Self.tblPropertyImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyInfo" EntityType="Self.tblPropertyInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyOwnerInfo" EntityType="Self.tblPropertyOwnerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyReview" EntityType="Self.tblPropertyReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPropertyType" EntityType="Self.tblPropertyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStates" EntityType="Self.tblStates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserInfo" EntityType="Self.tblUserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserType" EntityType="Self.tblUserType" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StateID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblCityStore">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblPropertyBookingInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyInfoID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Booking_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookingDateFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BookingDateTo" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BookingTimeFrom" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="BookingTimeTo" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPropertyBookingTerm">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyBookingName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyBookingTerms" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPropertyFacilityInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyFacilityName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPropertyImage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImageTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPropertyInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyTypeID" Type="Int32" Nullable="false" />
+          <Property Name="IsPrivateParkingAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="IsRoadSideParkingAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="IsNearToPublicTransport" Type="Boolean" Nullable="false" />
+          <Property Name="IsNearToAirport" Type="Boolean" Nullable="false" />
+          <Property Name="IsNearToRailwayStation" Type="Boolean" Nullable="false" />
+          <Property Name="IsNearToBusStation" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPropertyOwnerInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyOwner" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyOwnerAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Contact1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Contact2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Contact3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PropertyInfoID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPropertyReview">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyReview" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PropertyInfoID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPropertyType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblUserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Contact1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Contact2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Contact3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblUserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCities" EntityType="Self.tblCity" />
+          <EntitySet Name="tblCityStores" EntityType="Self.tblCityStore" />
+          <EntitySet Name="tblPropertyBookingInfoes" EntityType="Self.tblPropertyBookingInfo" />
+          <EntitySet Name="tblPropertyBookingTerms" EntityType="Self.tblPropertyBookingTerm" />
+          <EntitySet Name="tblPropertyFacilityInfoes" EntityType="Self.tblPropertyFacilityInfo" />
+          <EntitySet Name="tblPropertyImages" EntityType="Self.tblPropertyImage" />
+          <EntitySet Name="tblPropertyInfoes" EntityType="Self.tblPropertyInfo" />
+          <EntitySet Name="tblPropertyOwnerInfoes" EntityType="Self.tblPropertyOwnerInfo" />
+          <EntitySet Name="tblPropertyReviews" EntityType="Self.tblPropertyReview" />
+          <EntitySet Name="tblPropertyTypes" EntityType="Self.tblPropertyType" />
+          <EntitySet Name="tblStates" EntityType="Self.tblState" />
+          <EntitySet Name="tblUserInfoes" EntityType="Self.tblUserInfo" />
+          <EntitySet Name="tblUserTypes" EntityType="Self.tblUserType" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="tblCities">
+            <EntityTypeMapping TypeName="EFModel.tblCity">
+              <MappingFragment StoreEntitySet="tblCity">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCityStores">
+            <EntityTypeMapping TypeName="EFModel.tblCityStore">
+              <MappingFragment StoreEntitySet="tblCityStore">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyBookingInfoes">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyBookingInfo">
+              <MappingFragment StoreEntitySet="tblPropertyBookingInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PropertyInfoID" ColumnName="PropertyInfoID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Booking_Details" ColumnName="Booking Details" />
+                <ScalarProperty Name="BookingDateFrom" ColumnName="BookingDateFrom" />
+                <ScalarProperty Name="BookingDateTo" ColumnName="BookingDateTo" />
+                <ScalarProperty Name="BookingTimeFrom" ColumnName="BookingTimeFrom" />
+                <ScalarProperty Name="BookingTimeTo" ColumnName="BookingTimeTo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyBookingTerms">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyBookingTerm">
+              <MappingFragment StoreEntitySet="tblPropertyBookingTerms">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PropertyBookingName" ColumnName="PropertyBookingName" />
+                <ScalarProperty Name="PropertyBookingTerms" ColumnName="PropertyBookingTerms" />
+                <ScalarProperty Name="PropertyInfoID" ColumnName="PropertyInfoID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyFacilityInfoes">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyFacilityInfo">
+              <MappingFragment StoreEntitySet="tblPropertyFacilityInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PropertyFacilityName" ColumnName="PropertyFacilityName" />
+                <ScalarProperty Name="PropertyInfoID" ColumnName="PropertyInfoID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyImages">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyImage">
+              <MappingFragment StoreEntitySet="tblPropertyImages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="PropertyInfoID" ColumnName="PropertyInfoID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyInfoes">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyInfo">
+              <MappingFragment StoreEntitySet="tblPropertyInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+                <ScalarProperty Name="PropertyTypeID" ColumnName="PropertyTypeID" />
+                <ScalarProperty Name="IsPrivateParkingAvailable" ColumnName="IsPrivateParkingAvailable" />
+                <ScalarProperty Name="IsRoadSideParkingAvailable" ColumnName="IsRoadSideParkingAvailable" />
+                <ScalarProperty Name="IsNearToPublicTransport" ColumnName="IsNearToPublicTransport" />
+                <ScalarProperty Name="IsNearToAirport" ColumnName="IsNearToAirport" />
+                <ScalarProperty Name="IsNearToRailwayStation" ColumnName="IsNearToRailwayStation" />
+                <ScalarProperty Name="IsNearToBusStation" ColumnName="IsNearToBusStation" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyOwnerInfoes">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyOwnerInfo">
+              <MappingFragment StoreEntitySet="tblPropertyOwnerInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PropertyOwner" ColumnName="PropertyOwner" />
+                <ScalarProperty Name="PropertyOwnerAddress" ColumnName="PropertyOwnerAddress" />
+                <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Contact3" ColumnName="Contact3" />
+                <ScalarProperty Name="PropertyInfoID" ColumnName="PropertyInfoID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyReviews">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyReview">
+              <MappingFragment StoreEntitySet="tblPropertyReview">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PropertyReview" ColumnName="PropertyReview" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PropertyInfoID" ColumnName="PropertyInfoID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPropertyTypes">
+            <EntityTypeMapping TypeName="EFModel.tblPropertyType">
+              <MappingFragment StoreEntitySet="tblPropertyType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PropertyTypeName" ColumnName="PropertyTypeName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStates">
+            <EntityTypeMapping TypeName="EFModel.tblState">
+              <MappingFragment StoreEntitySet="tblStates">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserInfoes">
+            <EntityTypeMapping TypeName="EFModel.tblUserInfo">
+              <MappingFragment StoreEntitySet="tblUserInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Contact3" ColumnName="Contact3" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserTypes">
+            <EntityTypeMapping TypeName="EFModel.tblUserType">
+              <MappingFragment StoreEntitySet="tblUserType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

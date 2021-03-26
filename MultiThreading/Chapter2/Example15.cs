@@ -28,7 +28,7 @@ namespace MultiThreading
 
             _val2 = 0;
 
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
         }
 
     }

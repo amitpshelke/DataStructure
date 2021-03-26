@@ -13,6 +13,16 @@ namespace DesignPattern.Creational.Factory
         void Print();
     }
 
+
+    /*   IMPORTANT NOTE
+    
+    The issue with logical statements such as switch and if-else in a factory class is whenever you’re developing some new type 
+    it should be able to create, you’ll have to modify the factory itself.
+    This clearly violates the Open/Closes principle.
+ 
+     
+    */
+
     public class FactoryInvoice
     {
         public static IInvoice GetInvoice(int InvoiceType)
@@ -76,3 +86,6 @@ namespace DesignPattern.Creational.Factory
         }
     }
 }
+
+
+

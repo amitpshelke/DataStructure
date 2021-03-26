@@ -8,6 +8,32 @@ namespace DesignPattern.Creational.Singleton_V2
             •An instance of the class is created.
             •Any of the static members of the class are referenced.
 
+
+    Advantages of a Singleton Pattern are:
+
+        Singleton pattern can be implemented interfaces.
+        It can be also inherited from other classes.
+        It can be lazy-loaded.
+        It has Static Initialization.
+        It can be extended into a factory pattern.
+        It helps to hide dependencies.
+        It provides a single point of access to a particular instance, so it is easy to maintain.
+
+
+    Disadvantages of a Singleton Pattern are:
+
+        Unit testing is more difficult (because it introduces a global state into an application).
+        This pattern reduces the potential for parallelism within a program because to access the singleton in a multi-threaded system, 
+        an object must be serialized (by locking)
+
+
+    Singleton class vs. Static methods:
+
+        A Static Class cannot be extended whereas a singleton class can be extended.
+        A Static Class can still have instances (unwanted instances) whereas a singleton class prevents it.
+        A Static Class cannot be initialized with a STATE (parameter), whereas a singleton class can be.
+        A Static class is loaded automatically by the CLR when the program or namespace containing the class is loaded.
+
     */
 
 
@@ -23,6 +49,7 @@ namespace DesignPattern.Creational.Singleton_V2
         //ctor
         private SingletonV1()
         {
+            string x = "";
         }
 
         public static SingletonV1 Instance
@@ -49,6 +76,7 @@ namespace DesignPattern.Creational.Singleton_V2
         //ctor
         private SingletonV2()
         {
+            string x = "";
         }
 
         public static SingletonV2 Instance
@@ -91,7 +119,7 @@ namespace DesignPattern.Creational.Singleton_V2
         {
         }
 
-        public static SingletonV3 MyProperty
+        public static SingletonV3 Instance
         {
             get
             {
@@ -103,7 +131,6 @@ namespace DesignPattern.Creational.Singleton_V2
 
 
     //Fourth Version -  fully lazy instantiation
-
     public sealed class SingletonV4
     {
         //ctor
@@ -136,12 +163,11 @@ namespace DesignPattern.Creational.Singleton_V2
 
 
     //Fifth Version - using .NET 4.x Lazy<T> type
-
     public sealed class SingletonV5
     {
         //All you need to do is pass a delegate to the constructorwhich calls the Singleton constructor - which is done most easily with a lambda expression. 
         //The code above implicitly uses LazyThreadSafetyMode.ExecutionAndPublication as the threadsafety mode for the Lazy<Singleton>.
-        private static readonly Lazy<SingletonV5> lazy = new Lazy<SingletonV5>(() => new SingletonV5());
+        private static readonly Lazy<SingletonV5> lazy = new Lazy<SingletonV5>(() => new SingletonV5(), true);
 
         //ctor
         private SingletonV5()
