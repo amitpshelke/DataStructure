@@ -43,6 +43,7 @@ namespace SOLID.DIP
     public interface IMessenger
     {
         void SendMessage();
+        
     }
     public class Email_Extn : IMessenger
     {

@@ -2,59 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace OOPS
 {
     internal class Program
     {
-
-
-
         private static void Main(string[] args)
         {
 
-            Console.WriteLine(Console.Read());
-            Console.ReadKey();
-            Console.WriteLine(Console.ReadLine());
 
 
-
-            //int possibleCombinationCnt = 0;
-            //long num = 15;
-            //long sum = 0;
-
-
-            //for (int j = 1; j < num; j++)
-            //{
-            //    for (int i = j; i < num; i++)
-            //    {
-            //        sum += i;
-            //        if (sum == num)
-            //        {
-            //            possibleCombinationCnt++;
-            //            sum = 0;
-            //            break;
-            //        }
-            //        else if (sum > num)
-            //        {
-            //            sum = 0;
-            //            break;
-            //        }
-            //    }
-            //}
-
-
-            //List<int> LstACValues = new List<int> { 1, 7, 2, 5, 10, 16, 17, 18, 20, 21, 22};
-
-            //var result = (from m in LstACValues
-            //              where m % 2 == 0
-            //              select m).Take(5).ToList();
+            //AbstractClass_Version.Client.Execute();
 
             //NestedAsync_AwaitExample.NestedAsync_Await.Client.Execute();
-            //Async_AwaitExample.Client.Execute();
 
             //Indexers.Client.Execute();
-            //Async_AwaitExample.Client.Execute();
+            Async_AwaitExample.Client.Execute();
+           // Async_AwaitExample2.Client.Execute();
             //IQuerableVsIEnumerable.Client.Execute();
             //RegularExpression.Client.Execute();
 
@@ -76,7 +41,6 @@ namespace OOPS
             //StaticConstructor.Client.Execute();
             //Polymorphism.Client.Execute();
             //InterfaceConflict.Client.Execute();
-            //Async_AwaitExample.Client.Execute();
             //Concurrency_Parallelism.Client.Execute();
 
             //Covariance_ContraVariance.Client.Execute();
@@ -95,13 +59,39 @@ namespace OOPS
             //StringBuilder_String.Client.Execute();
             //Nested_Classes.Client.Execute();
 
-            OOPS.Stack_Queue.Client.Execute();
+            //OOPS.Stack_Queue.Client.Execute();
 
             //Test6.Client.Execute();
 
             Console.ReadKey();
         }
 
+        public static int findAccuracy(int n, int[] TransId, double[] accuracy)
+        {
+            //this is default OUTPUT. You can change it
+            int result = -404;
+
+            //WRITE YOUR LOGIC HERE:
+            double minAcc = 0.5;
+            int lastMinAccId = 0;
+            bool firstAssign = false;
+            for (int trans = 1; trans <= n; trans++)
+            {
+                if (accuracy[trans] >= 0.5)
+                {
+                    if (firstAssign == false)
+                    {
+                        lastMinAccId = TransId[trans];
+                        firstAssign = true;
+                    }
+                    if (accuracy[lastMinAccId] < accuracy[trans])
+                        lastMinAccId = TransId[trans];
+                }
+            }
+
+            result = lastMinAccId;
+            return result;
+        }
         private static void OnStart()
         {
             DebugLog.Write(LogType.Debug, "FileReader", "OnStart", "Service Started");
@@ -120,15 +110,6 @@ namespace OOPS
     }
 
 
-    public class NTPA
-    {
-        public int AccountId { get; set; }
-
-        public string AccountName { get; set; }
-
-        public int ParentAccountId { get; set; }
-
-        public bool IsParent { get; set; }
-    }
+   
 }
 

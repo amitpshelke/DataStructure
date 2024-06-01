@@ -3,7 +3,7 @@ Namespace: System.Collections
 
 - An IEnumerable is a list or a container which can hold some items. 
 - You can iterate through each element in the IEnumerable. 
-- You can not edit the items like adding, deleting, updating, etc. instead you just use a container to contain a list of items. 
+- You cannot edit the items like adding, deleting, updating, etc. instead you just use a container to contain a list of items. 
 - It is the most basic type of list container.
 - All you get in an IEnumerable is an enumerator that helps in iterating over the elements. 
 - An IEnumerable does not hold even the count of the items in the list, instead, you have to iterate over the elements to get the count of items.
@@ -40,13 +40,18 @@ Namespace: System.Linq
 
 
 
-  IEnumerable  -----
-      |				|
+  IEnumerable  
+      |				
+	  |             
+	  |			
+  ICollection -------
 	  |             |
-	  |			IQueryable
-  ICollection
-	  |
-	  |
-	  |
+	  |             |
+	  |          IQueryable
     IList
 
+
+IQueryable is faster than IEnumerable. 
+
+- IEnumerable loads data in-memory and then apply filters to it one by one 
+- IQueryable apply filters all at once and return the result.

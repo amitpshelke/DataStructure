@@ -79,7 +79,7 @@ namespace OOPS.Iterate_Async
 
     public class Client
     {
-        public static void Execute()
+        public static async void Execute()
         {
             List<string> lst = new List<string>();
             lst.Add("Task 1");
@@ -91,17 +91,17 @@ namespace OOPS.Iterate_Async
 
             //It will be slow as we are sitting inside the synchronous loop waiting for each task to complete one by one. 
             InformationReader1 ir1 = new InformationReader1();
-            ir1.LoopData(lst);
+            await ir1.LoopData(lst);
 
 
             // the first thing we need to do is create a collection of tasks, 
             // once we have this we can start looping over our thingsToLoop
             InformationReader2 ir2 = new InformationReader2();
-            ir2.LoopData(lst);
+            await ir2.LoopData(lst);
 
 
             InformationReader3<string> ir3 = new InformationReader3<string>();
-            ir2.LoopData(lst);
+            await ir2.LoopData(lst);
 
         }
     }

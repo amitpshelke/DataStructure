@@ -19,84 +19,93 @@ namespace DesignPattern.Behavioural.Mediator
         - Some object can be grouped and customized based on behaviors.
     */
 
-    public interface IMediator
+    public interface IBroker
     {
-        void SendMessage(Colleague caller, string msg);
+        void SendMessage(Customer caller, string msg);
     }
 
-    public abstract class Colleague
+    public abstract class Customer
     {
-        protected IMediator _mediator;
+        protected IBroker _broker;
 
-        public Colleague(IMediator mediator)
+        public Customer(IBroker broker)
         {
-            _mediator = mediator;
+            _broker = broker;
         }
     }
 
 
-    public class ConcreteColleagueA : Colleague
+    public class Buyer : Customer
     {
-        public ConcreteColleagueA(IMediator mediator) : base(mediator)
+        public Buyer(IBroker broker) : base(broker)
         {
         }
 
         public void Send(string msg)
         {
-            Console.WriteLine("A send message:" + msg);
-            _mediator.SendMessage(this, msg);
+            Console.WriteLine("Buyer sends message:" + msg);
+            _broker.SendMessage(this, msg);
         }
 
         public void Receive(string msg)
         {
-            Console.WriteLine("A receive message:" + msg);
+            Console.WriteLine("Buyer receives message:" + msg);
         }
     }
 
 
-    public class ConcreteColleagueB : Colleague
+    public class Seller : Customer
     {
-        public ConcreteColleagueB(IMediator mediator) : base(mediator)
+        public Seller(IBroker broker) : base(broker)
         {
         }
 
         public void Send(string msg)
         {
-            Console.WriteLine("B send message:" + msg);
-            _mediator.SendMessage(this, msg);
+            Console.WriteLine("Seller sends message:" + msg);
+            _broker.SendMessage(this, msg);
         }
 
         public void Receive(string msg)
         {
-            Console.WriteLine("B receive message:" + msg);
+            Console.WriteLine("Seller receives message:" + msg);
         }
     }
 
 
-    public class ConcreteMediator : IMediator
+    public class Broker : IBroker
     {
-        public ConcreteColleagueA Colleague1 { get; set; }
+        public Buyer buyer { get; set; }
 
-        public ConcreteColleagueB Colleague2 { get; set; }
+        public Seller seller { get; set; }
 
-        public void SendMessage(Colleague caller, string msg)
+        public void SendMessage(Customer customerType, string msg)
         {
-            if (caller == Colleague1)
-                Colleague2.Receive(msg);
+            if (customerType == buyer)
+                seller.Receive(msg);
             else
-                Colleague1.Receive(msg);
+                buyer.Receive(msg);
         }
     }
+
 
 
     public class Client
     {
         public static void Execute()
         {
-            ConcreteMediator cm = new ConcreteMediator();
+            Broker br = new Broker();
 
+            Seller se = new Seller(br);
+            Buyer bu = new Buyer(br);
 
-            //cm.SendMessage();
+            br.seller = se;
+            br.buyer = bu;
+            
+
+            se.Send("Do you want to buy something?");
+            bu.Send("Yes, your house.");
+
         }
     }
 

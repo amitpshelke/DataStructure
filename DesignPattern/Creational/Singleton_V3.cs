@@ -236,6 +236,8 @@ namespace DesignPattern.Creational.Singleton_V3
     }
 
 
+
+
     public class Client
     {
         public static void Execute()

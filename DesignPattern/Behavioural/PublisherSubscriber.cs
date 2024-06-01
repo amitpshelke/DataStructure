@@ -13,7 +13,7 @@ namespace DesignPattern.Behavioural.PublisherSubscriber
      
     - The Publisher/Subscriber pattern is one of the variations of the Observer designer pattern.
     - In the Publisher/Subscriber pattern a publisher (entiry responsible for publishing a message) publishes a message 
-      and there are one or more Subscribers (entity subsribing, in other words intested in a message of a specified message type) who capture the published message.
+      and there are one or more Subscribers (entity subsribing, in other words interested in a message of a specified message type) who capture the published message.
 
 
 

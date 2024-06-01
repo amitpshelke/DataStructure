@@ -20,14 +20,14 @@ namespace OOPS.Const_ReadOnly
         -Const field can not be passed as ref or out parameter
 
     READONLY
-        readonly keyword applies only to fields not local variables
-        We can assign readonly field at the time of declaration or in constructor,not in any other methods.
-        dynamic memory allocated for readonly fields and we can get the value at run time.
-        Readonly belongs to the object created so accessed through only instance of class. To make it class member we need to add static keyword before readonly.
-        The value may be different depending upon constructor used (as it belongs to object of the class)
-        If you declare a non-primitive types (reference type) as readonly only reference is immutable not the object it contains.
-        Since the value is obtained at run time, there is no dll versioning problem with readonly fields/ properties.
-        We can pass readonly field as ref or out parameters in the constructor context. 
+        -readonly keyword applies only to fields not local variables
+        -We can assign readonly field at the time of declaration or in constructor,not in any other methods.
+        -dynamic memory allocated for readonly fields and we can get the value at run time.
+        -Readonly belongs to the object created so accessed through only instance of class. To make it class member we need to add static keyword before readonly.
+        -The value may be different depending upon constructor used (as it belongs to object of the class)
+        -If you declare a non-primitive types (reference type) as readonly only reference is immutable not the object it contains.
+        -Since the value is obtained at run time, there is no dll versioning problem with readonly fields/ properties.
+        -We can pass readonly field as ref or out parameters in the constructor context. 
 
 
 

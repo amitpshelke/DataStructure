@@ -39,6 +39,11 @@ namespace DesignPattern.Creational.AbstractFactory
                         iRender = FactoryTextBox.GetbTextBoxObject();
                         break;
                     }
+                case 3:
+                    {
+                        iRender = FactoryTextBox.GetbTextBoxObject2();
+                        break;
+                    }
             }
 
             return iRender;
@@ -69,6 +74,11 @@ namespace DesignPattern.Creational.AbstractFactory
         {
             return new UITextBox();
         }
+
+        public static IRender GetbTextBoxObject2()
+        {
+            return new UITextBox2();
+        }
     }
 
     public class UIButton : IRender
@@ -80,6 +90,14 @@ namespace DesignPattern.Creational.AbstractFactory
     }
 
     public class UITextBox : IRender
+    {
+        public void RenderMe()
+        {
+            Console.WriteLine("TextBox Rendered");
+        }
+    }
+
+    public class UITextBox2 : IRender
     {
         public void RenderMe()
         {

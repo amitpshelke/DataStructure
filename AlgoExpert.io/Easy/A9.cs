@@ -38,7 +38,7 @@ namespace AlgoExpert.io.Easy
             Array.Sort(queries);
 
             int totalWaitingTime = 0;
-            for (int idx = 0; idx < queries.length; idx++)
+            for (int idx = 0; idx < queries.Length; idx++)
             {
                 int duration = queries[idx];
                 int queriesLeft = queries.Length - (idx + 1);

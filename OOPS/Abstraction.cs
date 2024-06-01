@@ -25,6 +25,9 @@ namespace OOPS
         Avoids code duplication and increases reusability.
         Helps to increase security of an application or program as only important details are provided to the user.
 
+
+        **** Abstraction in OOAD has nothing to do with abstract classes in OOP.
+
     */
     public abstract class Shape
     {

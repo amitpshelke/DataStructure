@@ -53,7 +53,7 @@ namespace OOPS.Events_Delegate_2
     public delegate void Print(string s);
     public class DelegateTest
     {
-        
+        //public delegate void Print1(string s);
         public DelegateTest()
         {
             Print p = new Print(ColorPrint);
@@ -122,8 +122,8 @@ namespace OOPS.Events_Delegate_2
         public static void Execute()
         {
             DelegateTest dt = new DelegateTest();  // even if the delegate is public, we cannot use it outside the class.
-            //dt.Print  -- > this line gives error as Print is not available
-
+            //dt.Print;  --> this line gives error as Print is not available
+            //dt.Print1;  --> same with this also
             Print p = new Print(dt.ColorPrint);
             p += new Print(dt.BWPrint);
             p.Invoke("Sample Data");
@@ -135,13 +135,6 @@ namespace OOPS.Events_Delegate_2
             et.OnPrintEvent();
 
 
-        }
-
-       
-
-        private static void Et_PrintEvent(string s)
-        {
-            Console.WriteLine("Hello");
         }
     }
 }
