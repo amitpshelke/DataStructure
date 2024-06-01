@@ -49,16 +49,34 @@ namespace DesignPattern.Creational.Factory
             }
             return invoice;
         }
+
+        // above method can have this alternative to avoid swtich case 
+        public static dynamic GetInvoice(string InputType)
+        {
+            if (string.IsNullOrEmpty(InputType)) return null;
+
+            var newType = Activator.CreateComInstanceFrom("DesignPattern.exe", InputType);
+
+            if (newType == null) return null;
+            else
+                return newType.Unwrap();
+        }
     }
 
 
     public class InvoiceWithHeader : IInvoice
     {
+        public delegate void Printer(string message);
+        public event Printer PrintEventHandler;
+
         public void Print()
         {
             Console.WriteLine("InvoiceWithHeader");
         }
+
+        
     }
+
 
     public class InvoiceWithoutHeader : IInvoice
     {
@@ -83,6 +101,16 @@ namespace DesignPattern.Creational.Factory
         {
             IInvoice invoice = FactoryInvoice.GetInvoice(1);
             invoice.Print();
+
+            var invoiceX = FactoryInvoice.GetInvoice("DesignPattern.Creational.Factory.InvoiceWithHeader");
+            invoiceX.PrintEventHandler += PrintMe();
+            invoiceX.Print();
+        }
+
+        private static dynamic PrintMe()
+        {
+            Console.WriteLine("Amit");
+            return "Amit";
         }
     }
 }

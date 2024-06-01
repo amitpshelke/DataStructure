@@ -26,7 +26,7 @@ namespace OOPS.MemoryAllocation
             //P variable will have Null value but will not be point to heap memory allocated by new Person();
             P = new Person();   //let say 0x123456
 
-            P.Name = "Wally";  // this will allocation and point another memory on HEAP to store string value which is nothing but an char[]
+            P.Name = "Wally";  // this will allocate and point another memory on HEAP to store string value which is nothing but an char[]
             P.Age = 40;        //similar here also
 
 

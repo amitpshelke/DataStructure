@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>OOPS</RootNamespace>
     <AssemblyName>OOPS</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -55,9 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractClass_Interface.cs" />
+    <Compile Include="AbstractClass_Version.cs" />
     <Compile Include="Abstraction.cs" />
+    <Compile Include="Abstraction_Encapsulation.cs" />
     <Compile Include="Aggregation_Association_Composition.cs" />
+    <Compile Include="AppDomainExtn.cs" />
     <Compile Include="Async_Await.cs" />
+    <Compile Include="Async_Await2.cs" />
     <Compile Include="BlockingCollection.cs" />
     <Compile Include="CityModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -78,17 +82,20 @@
     <Compile Include="ConcurrentCollection.cs" />
     <Compile Include="Const_ReadOnly.cs" />
     <Compile Include="Covariance_ContraVariance.cs" />
+    <Compile Include="Covariance_ContraVariance_Invariance.cs" />
     <Compile Include="DebugLog.cs" />
+    <Compile Include="Delegate_Interface.cs" />
     <Compile Include="Events_Delegates.cs" />
     <Compile Include="Events_Delegates_4.cs" />
     <Compile Include="Events_Delegate_2.cs" />
     <Compile Include="Events_Delegate_3.cs" />
     <Compile Include="ExtensionMethod.cs" />
-    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="ExtensionMethod_2.cs" />
     <Compile Include="Framework_Features.cs" />
     <Compile Include="GarbageCollection.cs" />
     <Compile Include="Collection.cs" />
     <Compile Include="GenericsComplete.cs" />
+    <Compile Include="Interview\Test13.cs" />
     <Compile Include="LambdaExp_Delegate_AnomyousFunc.cs" />
     <Compile Include="DelegateSample2.cs" />
     <Compile Include="Enumerables.cs" />

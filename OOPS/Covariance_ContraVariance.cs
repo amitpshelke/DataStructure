@@ -75,7 +75,7 @@ namespace OOPS.Covariance_ContraVariance
 
             //Above two are perfectly valid statement. 
             //i.e. An object of base class can point to derived class; this is Dynamic Polymorphism
-            //so list of object of base class can to list of derived class
+            //so list of object of base class can point to list of derived class
 
             //Group of Animal can point to group of derived class. 
             //******* But this was not possible in framework 3.5 or below

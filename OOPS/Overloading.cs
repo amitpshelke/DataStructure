@@ -17,22 +17,28 @@ namespace OOPS.Overloading
             return 0;
         }
 
-        //Below is not allowed
-        //public int Call(int b, int a)
-        //{
-        //   return 0;
-        //}
+        /****  Below method is not allowed with just change in return type
+                    public int Call(int b, int a)
+                    {
+                        return 0;
+                    }
 
-        //Below method is not allowed with just change in return type
-        //public float Call(int a, int b)
-        //{
-        //    return 0;
-        //}
 
+                    public float Call(int a, int b)
+                    {
+                        return 0;
+                    }
+        */
 
 
         public int Call(ref int a, int b)
         {
+            return 0;
+        }
+
+        public int Call(ref int a, out int b)
+        {
+            b = 0;  // out value must be assigned with some value before return
             return 0;
         }
 

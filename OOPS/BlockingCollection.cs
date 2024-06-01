@@ -46,7 +46,7 @@ namespace OOPS.BlockingCollectionEx
     
     class BlockingCollectionEx
     {
-        public void Perfromance()
+        public void Performance()
         {
             BlockingCollection<int> bc = new BlockingCollection<int>(5);
 
@@ -82,7 +82,7 @@ namespace OOPS.BlockingCollectionEx
         public static void Execute()
         {
             BlockingCollectionEx bcx = new BlockingCollectionEx();
-            bcx.Perfromance();
+            bcx.Performance();
         }
     }
 }

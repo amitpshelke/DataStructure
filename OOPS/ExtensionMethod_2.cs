@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOPS.ExtensionMethods
+namespace OOPS.ExtensionMethod_2
 {
     /*
      * Extension methods allow you to inject additional methods without modifying, deriving or recompiling the original class, struct or interface.

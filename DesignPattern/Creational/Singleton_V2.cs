@@ -109,7 +109,7 @@ namespace DesignPattern.Creational.Singleton_V2
             Static constructors in C# are specified to execute only when an instance of the 
             class is created or a static member is referenced, and to execute only once per AppDomain
 
-            - The laziness of type initializers is only guaranteed by .NET when the type isn'tmarked with a special flag called "beforefieldinit"
+            - The laziness of type initializers is only guaranteed by .NET when the type isn't marked with a special flag called "beforefieldinit"
             - The C# compiler marks all types which don't have a static constructor as "beforefieldinit "
             */
         }
@@ -167,7 +167,7 @@ namespace DesignPattern.Creational.Singleton_V2
     {
         //All you need to do is pass a delegate to the constructorwhich calls the Singleton constructor - which is done most easily with a lambda expression. 
         //The code above implicitly uses LazyThreadSafetyMode.ExecutionAndPublication as the threadsafety mode for the Lazy<Singleton>.
-        private static readonly Lazy<SingletonV5> lazy = new Lazy<SingletonV5>(() => new SingletonV5(), true);
+        private static readonly Lazy<SingletonV5> lazy = new Lazy<SingletonV5>(() => new SingletonV5(), false);
 
         //ctor
         private SingletonV5()
@@ -180,6 +180,32 @@ namespace DesignPattern.Creational.Singleton_V2
             {
                 return lazy.Value;
             }
+        }
+    }
+
+
+
+    public class Client
+    {
+        public static void Execute()
+        {
+            SingletonV1 obj1 = SingletonV1.Instance;
+            SingletonV1 obj2 = SingletonV1.Instance;
+
+            //To prove that both objects are same
+
+            Console.WriteLine(obj1.GetHashCode());
+            Console.WriteLine(obj2.GetHashCode());
+
+
+
+            int v2 = SingletonV2.Instance.GetHashCode();
+
+            int v3 = SingletonV3.Instance.GetHashCode();
+
+            int v4 = SingletonV4.Instance.GetHashCode();
+
+            int v5 = SingletonV5.Instance.GetHashCode();
         }
     }
 }

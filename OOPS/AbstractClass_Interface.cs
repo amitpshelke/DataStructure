@@ -64,7 +64,6 @@ namespace OOPS.AbstractClass_Interface
         public abstract string FName { get; set; }
         public abstract string LName { get; set; }
 
-
         //ctor
         public Employee()
         {
@@ -76,7 +75,8 @@ namespace OOPS.AbstractClass_Interface
             Console.WriteLine("Base Constructor is called");
             //Constructor is allowed in Abstract class, only private constructor is not allowed
         }
-
+        
+        //Can have static constructor
         static Employee()
         {
             Console.WriteLine("Base Static Constructor is called");
@@ -99,9 +99,12 @@ namespace OOPS.AbstractClass_Interface
         }
 
         public abstract void Print();
+
+        public static void SendNotification()
+        {
+            //static method in abstract class is allowed
+        }
     }
-
-
 
     public interface IEmployee
     {
@@ -163,8 +166,6 @@ namespace OOPS.AbstractClass_Interface
         }
     }
 
-
-
     public class Emp_FullTime2 : IEmployee
     {
         protected string id;
@@ -197,6 +198,12 @@ namespace OOPS.AbstractClass_Interface
     {
         public static void Execute()
         {
+            //Employee ex = new Employee();     //  this line will give error, Cannot create instance of and Abstract class or Interface;
+
+            //IEmployee ee = new IEmployee();     //  this line will give error, Cannot create instance of and Abstract class or Interface;
+
+
+
             //Base B = new Derived .... this allowed in Abstract class
 
             //Abstract Class 
@@ -211,7 +218,7 @@ namespace OOPS.AbstractClass_Interface
 
             emp.Print();
 
-
+            Employee.SendNotification(); //calling abstract class static method
 
             //Interface
             IEmployee iemp = new Emp_FullTime2();

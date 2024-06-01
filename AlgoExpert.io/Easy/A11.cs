@@ -27,6 +27,20 @@ namespace AlgoExpert.io.Easy
         {
             LinkedList currentNode = linkedList;
 
+            while (currentNode != null)
+            {
+                LinkedList nextDistinctNode = currentNode.next;
+
+                while (nextDistinctNode != null && nextDistinctNode.value == currentNode.value)
+                {
+                    nextDistinctNode = nextDistinctNode.next;
+                }
+
+                currentNode.next = nextDistinctNode;
+                currentNode = nextDistinctNode;
+            }
+
+            return linkedList;
         }
     }
 
